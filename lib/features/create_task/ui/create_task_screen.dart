@@ -13,7 +13,7 @@ class CreateTaskScreen extends StatefulWidget {
 class _CreateTaskScreenState extends State<CreateTaskScreen> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: const CustomAppBar(title: 'Create New Task'),
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
@@ -36,8 +36,10 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
               padding: const EdgeInsets.all(15),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
+                  primary: AppColors.primary,
+                  textStyle: const TextStyle(fontSize: AppSizes.font16),
                   minimumSize: const Size.fromHeight(
-                      45), // fromHeight use double.infinity as width and 40 is the height
+                      48), // fromHeight use double.infinity as width and 40 is the height
                 ),
                 onPressed: () {
                   showDialog<String>(
@@ -45,17 +47,22 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                     builder: (BuildContext context) => AlertDialog(
                       title: const Text('Confirmation'),
                       content:
-                      const Text('Are you sure you want to add this task?'),
+                          const Text('Are you sure you want to add this task?'),
                       actions: <Widget>[
                         TextButton(
                           onPressed: () => Navigator.pop(context, 'Cancel'),
-                          child: const Text('Cancel'),
+                          child: const Text(
+                            'Cancel',
+                          ),
                         ),
                         TextButton(
                           //TODO: button to submit task to database and close the dialog
 
                           onPressed: () => Navigator.pop(context, 'Submit'),
-                          child: const Text('Submit'),
+                          child: const Text(
+                            'Submit',
+                            style: TextStyle(fontWeight: FontWeight.w600),
+                          ),
                         ),
                       ],
                     ),

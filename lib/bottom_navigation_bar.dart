@@ -38,7 +38,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               builder: (context) => const CreateTaskScreen()));
         },
         child: const Icon(
-          Icons.add,
+          Icons.add_circle_outline_sharp,
           size: 40,
         ),
         backgroundColor: AppColors.primary,

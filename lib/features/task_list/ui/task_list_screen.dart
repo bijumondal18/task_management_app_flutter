@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_todo_app/common/common.dart';
+import 'package:flutter_todo_app/common/theme.dart';
 import 'package:flutter_todo_app/common/widgets/custom_app_bar.dart';
 
 import '../bloc/task_list_bloc.dart';
@@ -19,7 +20,6 @@ class _TaskListScreenState extends State<TaskListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.scaffold,
       appBar: const CustomAppBar(title: 'Task List'),
       body: BlocBuilder<TaskListBloc, TaskListState>(
         builder: (context, state) {
@@ -44,7 +44,7 @@ class TaskList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool _value = false;
-    int val = -1;
+    bool? isAnswered = state?.isCompleted;
 
     return ListView.builder(
         itemCount: state!.questions!.length,
@@ -69,18 +69,12 @@ class TaskList extends StatelessWidget {
               children: [
                 Text(
                   'Q-${questions.questionNo}',
-                  style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.black,
-                      fontSize: AppSizes.font16),
+                  style: AppTheme.lightTheme.textTheme.headline4
                 ),
                 const SizedBox(height: AppSizes.padding4),
                 Text(
                   questions.title,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.black,
-                      fontSize: AppSizes.font14),
+                  style: AppTheme.lightTheme.textTheme.headline6,
                 ),
                 const SizedBox(height: AppSizes.padding8),
                 Row(
@@ -89,17 +83,19 @@ class TaskList extends StatelessWidget {
                     Expanded(
                       child: RadioListTile(
                         title: const Text('Yes'),
-                        value: _value,
-                        groupValue: val,
+                        value: "Yes",
+                        groupValue: isAnswered,
                         onChanged: (value) {},
+                        activeColor: AppColors.primary,
                       ),
                     ),
                     Expanded(
                       child: RadioListTile(
                         title: const Text('No'),
-                        value: _value,
-                        groupValue: val,
+                        value: "No",
+                        groupValue: isAnswered,
                         onChanged: (value) {},
+                        activeColor: AppColors.primary,
                       ),
                     ),
                     const Expanded(child: SizedBox())

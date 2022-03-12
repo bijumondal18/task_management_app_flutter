@@ -1,9 +1,7 @@
 part of 'task_list_bloc.dart';
 
 @immutable
-abstract class TaskListState extends Equatable {
-
-}
+abstract class TaskListState extends Equatable {}
 
 //initial state
 class TaskListInitial extends TaskListState {
@@ -22,6 +20,7 @@ class TaskListEditState extends TaskListState {
   final Questions questions;
 
   TaskListEditState({required this.questions});
+
   @override
   List<Object?> get props => [questions];
 }
@@ -29,10 +28,12 @@ class TaskListEditState extends TaskListState {
 //all questions loaded state
 class TaskListLoadedState extends TaskListState {
   final List<Questions>? questions;
+  final bool? isCompleted;
 
-  TaskListLoadedState({this.questions});
+  TaskListLoadedState({this.isCompleted, this.questions});
+
   @override
-  List<Object?> get props => [questions];
+  List<Object?> get props => [isCompleted, questions];
 }
 
 //failed state
@@ -40,6 +41,8 @@ class TaskListFailedState extends TaskListState {
   final String errorMessage;
 
   TaskListFailedState({required this.errorMessage});
+
   @override
   List<Object?> get props => [errorMessage];
 }
+
