@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_todo_app/common/common.dart';
-import 'package:flutter_todo_app/common/theme.dart';
-import 'package:flutter_todo_app/common/widgets/custom_app_bar.dart';
-
+import '../../../widgets/widgets.dart';
 import '../bloc/task_list_bloc.dart';
 import '../data/questions.dart';
+import 'package:flutter_todo_app/common/common.dart';
 
 class TaskListScreen extends StatefulWidget {
   final Questions? questions;

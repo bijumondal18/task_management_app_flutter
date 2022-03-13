@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo_app/common/common.dart';
-import 'package:flutter_todo_app/features/create_task/ui/create_task_screen.dart';
-import 'package:flutter_todo_app/features/task_history/ui/task_history_screen.dart';
-import 'package:flutter_todo_app/features/task_list/ui/task_list_screen.dart';
+import 'features/screens.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({Key? key}) : super(key: key);

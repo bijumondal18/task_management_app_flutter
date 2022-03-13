@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todo_app/common/common.dart';
+import 'package:flutter_todo_app/common/palette.dart';
+
+import 'dimens.dart';
 
 class AppTheme {
   static ThemeData get lightTheme {
@@ -7,6 +9,11 @@ class AppTheme {
         dividerColor: AppColors.lightGrey,
         brightness: Brightness.light,
         backgroundColor: AppColors.white,
+        appBarTheme: const AppBarTheme(
+            backgroundColor: AppColors.white,
+            elevation: AppSizes.elevation0,
+            centerTitle: true,
+            foregroundColor: AppColors.black),
         scaffoldBackgroundColor: AppColors.scaffold,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: const TextTheme(

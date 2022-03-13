@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_todo_app/bottom_navigation_bar.dart';
-import 'package:flutter_todo_app/common/theme.dart';
+import 'package:flutter_todo_app/common/common.dart';
 import 'package:flutter_todo_app/database/question_database.dart';
 import 'package:flutter_todo_app/features/task_list/bloc/task_list_bloc.dart';
 import 'package:flutter_todo_app/features/task_list/data/questions.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hive/hive.dart';
 
-import 'common/common.dart';
+import 'common/strings.dart';
 
 String _boxName = "Questions";
 
@@ -39,6 +39,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Task Management App',
       theme: AppTheme.lightTheme,
+      themeMode: ThemeMode.light,
       home: const CustomBottomNavigationBar(),
     );
   }
